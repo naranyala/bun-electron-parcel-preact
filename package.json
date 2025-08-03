@@ -1,14 +1,28 @@
 {
-  "name": "parcel-vanilla-starter",
-  "private": true,
-  "version": "0.0.0",
-  "source": "src/index.html",
+  "name": "electron-parcel-preact-biome-starter",
+  "version": "1.0.0",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html --public-url ./",
+    "lint": "biome check --write src",
+    "electron": "bun run build && ./node_modules/electron/dist/electron ./dist/index.html",
+    "electron:dev": "bun run build && ./node_modules/electron/dist/electron ./dist/index.html --dev"
   },
-  "dependencies": {},
   "devDependencies": {
-    "parcel": "^2.14.0"
+    "@biomejs/biome": "^1.9.3",
+    "electron": "^33.0.2",
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "@preact/signals": "^2.2.1",
+    "goober": "^2.1.16",
+    "preact": "^10.24.0",
+    "preact-iso": "^2.9.2",
+    "preact-router": "^4.1.2",
+    "rxjs": "^7.8.2"
+  },
+  "alias": {
+    "react": "preact/compat",
+    "react-dom": "preact/compat"
   }
 }
